@@ -1,0 +1,50 @@
+[project]
+name = 'countess-hdf5'
+version = "0.0.1"
+readme = "README.md"
+authors = [
+    { name = "Nick Moore", email="nick@zoic.org" },
+]
+maintainers = [
+    { name = "Nick Moore", email="nick@zoic.org" },
+]
+description = "HDF5 Plugin for CountESS"
+requires-python = ">=3.10"
+license = { text = "BSD-3-Clause" }
+classifiers = [
+    'Development Status :: 2 - Pre-Alpha',
+    'Intended Audience :: Science/Research',
+    'License :: OSI Approved :: BSD License',
+    'Operating System :: OS Independent',
+    'Topic :: Scientific/Engineering :: Bio-Informatics',
+]
+dependencies = [
+    "countess>=0.0.35,<0.1",
+    "tables~=3.8.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/CountESS-Project/countess-hdf5"
+Repository = "https://github.com/CountESS-Project/countess-hdf5.git"
+
+[project.optional-dependencies]
+dev = [
+    "countess[dev]>=0.0.35,<0.1",
+]
+
+[project.entry-points.countess_plugins]
+hdf_load = "countess_hdf5:LoadHdfPlugin"
+
+[tool.setuptools.dynamic]
+readme = { file = "README.md", content-type="text/markdown" }
+
+[tool.pylint]
+disable = [
+    "no-else-return",
+    "fixme",
+    "invalid-name",
+]
+
+[tool.black]
+line-length = 120
+
